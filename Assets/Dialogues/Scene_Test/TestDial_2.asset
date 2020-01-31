@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
+  m_Name: TestDial_2
+  m_EditorClassIdentifier: 
+  text: "Je suis un texte \xE0 choix multiple"
+  speed: 0.1
+  choose: 1
+  nextOption_1: {fileID: 11400000, guid: 6a08041fcb69c3a4e9f6f073176b8604, type: 2}
+  textChoix1: Choix 1
+  nextOption_2: {fileID: 11400000, guid: 3f8e6a5955ba86c4082e3ddd4cca1dd3, type: 2}
+  textChoix2: Choix 2
