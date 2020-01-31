@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TrashState : MonoBehaviour
 {
-    [SerializeField] private int state; //States number initialized to 3
+    [SerializeField] public int state; //Variable etat
     // Start is called before the first frame update
     void Start()
     {
-        state = 3;
+        state = 3; //Initialisation de l'etat a 3
     }
 
     // Update is called once per frame
@@ -19,12 +19,12 @@ public class TrashState : MonoBehaviour
 
     public void EnterTheTrash(GameObject gameObject)
     {
-        //If state is 0 then destroy the object
+        //Si l'etat est a zero alors l'objet est detruit
         if (state == 0)
         {
             Destroy(gameObject);
         }
-        //else state is descrement
+        //Sinon on decremente l'etat
         else state--;
     }
 }
