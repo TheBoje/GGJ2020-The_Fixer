@@ -6,6 +6,7 @@ public class BridgeParts : MonoBehaviour
 {
 
     public GameObject player;
+    [SerializeField] GameObject playerInventory;
 
     private Vector3 offset;
 
@@ -21,15 +22,20 @@ public class BridgeParts : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("YO");
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
             //transform.position = player.transform.position;
             this.GetComponent<BoxCollider2D>().enabled = false;
-            this.transform.parent = player.transform;
+            this.transform.parent = playerInventory.transform;
         }
+    }
+
+    public void DestroyPart()
+    {
+        Destroy(gameObject);
     }
 }
