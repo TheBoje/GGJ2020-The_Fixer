@@ -29,17 +29,21 @@ public class Bridge : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            foreach (Transform child in playerInventory.transform)
+            if(!_state)
             {
-                if(child.tag == "BridgePart")
+                // On récupère chaque enfant de l'inventaire et on regarde si ce sont des morceaux de pont
+                foreach (Transform child in playerInventory.transform)
                 {
-                    _nbRepair--;
-                    child.GetComponent<BridgeParts>().DestroyPart();
-
-                    if (_nbRepair == 0)
+                    if (child.tag == "BridgePart")
                     {
-                        _state = true;
-                        bridge.GetComponent<BoxCollider2D>().enabled = false;
+                        _nbRepair--;
+                        child.GetComponent<BridgeParts>().DestroyPart();
+
+                        if (_nbRepair == 0)
+                        {
+                            _state = true;
+                            bridge.GetComponent<BoxCollider2D>().enabled = false;
+                        }
                     }
                 }
             }

@@ -24,13 +24,14 @@ public class BridgeParts : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("YO");
+        //Debug.Log("YO");
 
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-            //transform.position = player.transform.position;
-            this.GetComponent<BoxCollider2D>().enabled = false;
-            this.transform.parent = playerInventory.transform;
+            transform.position = player.transform.position; // l'objet vient se mettre sur le personnage
+            this.GetComponent<MeshRenderer>().enabled = false; // On désactive son rendu
+            this.GetComponent<BoxCollider2D>().enabled = false; // On désactive son collider
+            this.transform.parent = playerInventory.transform; // On l'envois en tant que fils de inventory
         }
     }
 
