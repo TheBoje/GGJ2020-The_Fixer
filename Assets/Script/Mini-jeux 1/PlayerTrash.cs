@@ -14,7 +14,8 @@ public class PlayerTrash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Trash")
         {
-            Trash.GetComponent<TrashState>.EnterTheTrash(collision.gameObject);
+            Debug.Log("TEST");
+           // Trash.GetComponent<>.EnterTheTrash(collision.gameObject);
         }
     }
 }
