@@ -6,14 +6,19 @@ public class TestDIalogueActivator : MonoBehaviour
 {
 
     [SerializeField] private DialoguePlayer current;
+    [SerializeField] private int indice;
+    [SerializeField] private bool isPlayerPresent;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private float radius = 0.10f;
+    private bool played = false;
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && Input.GetButtonDown("Fire1") && !played)
         {
-            Debug.Log("OOF");
-            current.Read(0);
-            Destroy(this.gameObject);
+            current.Read(indice);
+            played = true;
         }
     }
+
 }
