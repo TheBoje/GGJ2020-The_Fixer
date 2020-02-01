@@ -28,7 +28,7 @@ public class TrashState : MonoBehaviour
             array[i, 1] = random;
         }
 
-        array[array.GetLength(0), 1] = 0;
+        array[array.GetLength(0) - 1, 1] = 0;
 
         gameObject.GetComponent<GameScriptMG1>().StartQTE(this.gameObject, array);
     }
