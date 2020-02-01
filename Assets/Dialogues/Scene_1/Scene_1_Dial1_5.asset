@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
   m_Name: Scene_1_Dial1_5
   m_EditorClassIdentifier: 
-  text: You can interact with [Ctr] key or a simple click...
+  text: You can interact with [Ctrl] key or a simple click...
   speed: 0.05
   choose: 0
   nextOption_1: {fileID: 0}
