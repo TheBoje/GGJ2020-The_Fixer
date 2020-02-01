@@ -4,7 +4,7 @@ using UnityEngine;
 public class TrashState : MonoBehaviour
 {
     [SerializeField] private int minTime = 1;   // Variable du temps minimal
-    [SerializeField] private int maxTime = 3;   // Variable du temps maximal
+    [SerializeField] private int maxTime = 2;   // Variable du temps maximal
     [SerializeField] private int minNum = 5;    // Variable du nombre de touches minimal
     [SerializeField] private int maxNum = 10;   // Variable du nombre de touches maximal
 

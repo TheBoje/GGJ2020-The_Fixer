@@ -1,4 +1,4 @@
-// Automatically switches to dark theme on launch
+/*// Automatically switches to dark theme on launch
 // Create an "Editor" folder and stick this script there, then restart, profit.
 // Based on: https://gist.github.com/instance-id/3046ad29bd8782a3b3398cd9ae48ca92
 // Thanks to:
@@ -106,4 +106,4 @@ public static class DarkTheme
     {
         return str.IndexOf(find, StringComparison.OrdinalIgnoreCase) != -1;
     }
-}
+}*/
