@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashState : MonoBehaviour
@@ -19,7 +18,7 @@ public class TrashState : MonoBehaviour
         keys = new List<int>() { Random.Range(1, 4) };  // Initialisation de la liste keys (+ premier element, parce que sinon ça ne marche pas)
         timings = new List<int>() { Random.Range(minTime, maxTime + 1) };   // Comme au dessus
         int r;  // Initialisation de la variable de random
-        for (int i = 0; i < length -1; i++)
+        for (int i = 0; i < length - 1; i++)
         {
             r = Random.Range(1, 4); // Touches sont [1;4[ donc {1, 2, 3}, remplacer 4 par n + 1 pour avoir n touches dans le QTE
             keys.Add(r); // Ajout de la touche dans liste keys

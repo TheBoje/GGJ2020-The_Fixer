@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerTrash : MonoBehaviour
 {
@@ -12,17 +10,17 @@ public class PlayerTrash : MonoBehaviour
         isPressingUse = Input.GetButton("Use"); //TODO Fix this shit please ( louis de demain, soit pas con stp)
     }
 
-    
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Trash" && !isInteracting && isPressingUse)
         {
             Debug.Log("Working action");
             isInteracting = true;
-            collision.gameObject.GetComponent<TrashState>().Interact();             
+            collision.gameObject.GetComponent<TrashState>().Interact();
         }
-        
-        
+
+
         /*else if ( isInteracting == true)
         {
             Debug.Log("Le personnage est déjà en train d'intéragir. Le bool est mis à false quelque part?");
