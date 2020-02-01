@@ -22,5 +22,6 @@ public class GameScriptMG1 : MonoBehaviour
             Wait(list[i, 1]);
             Debug.Log("Waited " + list[i, 1]);
         }
+        GameObject.Find("Player").GetComponent<PlayerTrash>().isInteracting = false;
     }
 }
