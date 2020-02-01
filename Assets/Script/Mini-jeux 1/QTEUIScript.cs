@@ -30,17 +30,14 @@ public class QTEUIScript : MonoBehaviour
             case 1:
                 StartCoroutine(FadeImage(false, Default_Num1));
                 StartCoroutine(FadeImage(true, Default_Num1));
-                Debug.Log("Image 1");
                 break;
             case 2:
                 StartCoroutine(FadeImage(false, Default_Num2));
                 StartCoroutine(FadeImage(true, Default_Num2));
-                Debug.Log("Image 2");
                 break;
             case 3:
                 StartCoroutine(FadeImage(false, Default_Num3));
                 StartCoroutine(FadeImage(true, Default_Num3));
-                Debug.Log("Image 3");
                 break;
             default:
                 Debug.LogError("Erreur instanciation MoveUICanvas() from QTEUIScript, id unknown");
@@ -67,23 +64,23 @@ public class QTEUIScript : MonoBehaviour
             }
         }
     }
-
-    public void PlayQTEStart(List<int> keys, List<int> timings) // Permet de lancer la coroutine, parce que ça ne voulait pas marcher depuis un fichier externe
-    {
-        Debug.Log("Starting Coroutine");
-        StartCoroutine(PlayQTE(keys, timings));
-    }
-
     IEnumerator PlayQTE(List<int> keys, List<int> timings)  // Coroutine main, Distribue les valeurs dans le switch
     {
         debug_keys = keys;      // Temp pour débug les doublons
         debug_timings = timings;
-        for (int i = 0; i < keys.Count; i++)    
+        for (int i = 0; i < keys.Count; i++)
         {
             MoveUICanvas(keys[i]);
             yield return new WaitForSeconds(timings[i]);
         }
+        GameObject.Find("Player").GetComponent<PlayerTrash>().isInteracting = false;
     }
+
+    public void PlayQTEStart(List<int> keys, List<int> timings) // Permet de lancer la coroutine, parce que ça ne voulait pas marcher depuis un fichier externe
+    {
+        StartCoroutine(PlayQTE(keys, timings));
+    }
+
 
 
 }

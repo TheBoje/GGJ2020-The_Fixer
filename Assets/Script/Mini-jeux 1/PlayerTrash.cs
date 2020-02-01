@@ -15,7 +15,6 @@ public class PlayerTrash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Trash" && !isInteracting && isPressingUse)
         {
-            Debug.Log("Working action");
             isInteracting = true;
             collision.gameObject.GetComponent<TrashState>().Interact();
         }
