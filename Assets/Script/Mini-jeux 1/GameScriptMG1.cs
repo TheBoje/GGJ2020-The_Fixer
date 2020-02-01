@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class GameScriptMG1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Wait(float seconds)
     {
-        
+        StartCoroutine(_wait(seconds));
+    }
+    IEnumerator _wait(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void StartQTE(GameObject GO, int[,] list)
     {
-        
+        for (int i = 0; i < list.GetLength(0); i++)
+        {
+            Debug.Log(list[i, 0]);
+            Wait(list[i, 1]);
+            Debug.Log("Waited " + list[i, 1]);
+        }
     }
 }
