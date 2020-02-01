@@ -26,7 +26,7 @@ public class TetrisLike : MonoBehaviour
         return (part.transform.position == new Vector3(posX, posY, Z_AXIS));
     }
 
-    private void placeInPosition(GameObject part, float posX, float posY)
+    private bool placeInPosition(GameObject part, float posX, float posY)
     {
         if( part.transform.position.x < posX + TOLERATED_OFFSET + transform.position.x && 
             part.transform.position.x > posX - TOLERATED_OFFSET + transform.position.x &&
@@ -35,7 +35,9 @@ public class TetrisLike : MonoBehaviour
         {
             part.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             part.transform.position = new Vector3(posX + transform.position.x, posY + transform.position.y, Z_AXIS);
+            return true;
         }
+        return false;
     }
 
     // Update is called once per frame
@@ -46,15 +48,15 @@ public class TetrisLike : MonoBehaviour
              test_part_3 = isInPostition(part3, -POS_X, POS_Y_1),
              test_part_4 = isInPostition(part4, POS_X, -POS_Y_1);
 
-        // on test la position de chaque parties et si elle ne sont pas à leurs position on regarde si elles peuvent y être
+        // on test la position de chaque parties et si elle ne sont pas à leurs position on regarde si elles peuvent y être PUTAIN DE GIT
         if (!test_part_1)
-            placeInPosition(part1, POS_X, POS_Y_1);
+            test_part_1 = placeInPosition(part1, POS_X, POS_Y_1);
         if (!test_part_2)
-            placeInPosition(part2, -POS_X, -POS_Y_2);
+            test_part_2 = placeInPosition(part2, -POS_X, -POS_Y_2);
         if (!test_part_3)
-            placeInPosition(part3, -POS_X, POS_Y_1);
+            test_part_3 = placeInPosition(part3, -POS_X, POS_Y_1);
         if (!test_part_4)
-            placeInPosition(part4, POS_X, -POS_Y_1);
+            test_part_4 = placeInPosition(part4, POS_X, -POS_Y_1);
 
         if (test_part_1 && test_part_2 && test_part_3 && test_part_4)
             _state = true;
