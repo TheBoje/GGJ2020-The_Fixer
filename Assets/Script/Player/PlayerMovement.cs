@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [SerializeField] private Vector3 input; // Vecteur d'input 
+    public Vector3 input; // Vecteur d'input 
     public float speed = 2f; // Multiplicateur de vitesse, modifiable à vos souhaits
 
     private Rigidbody2D rb; // Rigidbody du player

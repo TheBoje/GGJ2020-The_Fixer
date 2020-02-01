@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
+  m_Name: Scene_1_Dial7_1
+  m_EditorClassIdentifier: 
+  text: 'Fixer : How long has it been since your last hot shower ? Or even since
+    you had any hot water in your place ?'
+  speed: 0.05
+  choose: 0
+  nextOption_1: {fileID: 11400000, guid: 8100c50a1059d7c4789558ad846e290b, type: 2}
+  textChoix1: 
+  nextOption_2: {fileID: 0}
+  textChoix2: 

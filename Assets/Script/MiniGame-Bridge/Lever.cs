@@ -7,24 +7,21 @@ public class Lever : MonoBehaviour
 
     [SerializeField] private bool _state;
 
+    public bool isPLayerPresent;
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
         _state = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
+        isPLayerPresent = false;
         // On vérifie si le player et à porté et si il appuis sur E on change l'état du levier
         if(collision.tag == "Player")
         {
+            isPLayerPresent = true;
             if(Input.GetButtonDown("Fire1") && !_state)
             {
                 //transform.GetComponentInParent<SpriteRenderer>().color = Color.green;

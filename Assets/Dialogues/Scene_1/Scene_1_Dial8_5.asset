@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
+  m_Name: Scene_1_Dial8_5
+  m_EditorClassIdentifier: 
+  text: "Juliette : That\u2019s it I have to compose myself and live my life knowing
+    it\u2019s different\u2026 it\u2019s so simple but i didn\u2019t realise, thanks\r\n"
+  speed: 0.05
+  choose: 0
+  nextOption_1: {fileID: 11400000, guid: 2adb4790c7edd5046a8d9e08df0d79cd, type: 2}
+  textChoix1: 
+  nextOption_2: {fileID: 0}
+  textChoix2: 
