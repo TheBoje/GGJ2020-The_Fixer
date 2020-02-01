@@ -43,7 +43,7 @@ public class Bridge : MonoBehaviour
         if (Time.time - time > timeStamp)
         {
             particules.SetActive(false);
-        }
+        } 
         DetectPlayer();
     }
     /*
