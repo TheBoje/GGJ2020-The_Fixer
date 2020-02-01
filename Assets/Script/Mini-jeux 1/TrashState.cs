@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class TrashState : MonoBehaviour
 {
-    [SerializeField] private int minTime; // Variable du temps minimal
-    [SerializeField] private int maxTime; // Variable du temps maximal
-    [SerializeField] private int minNum; // Variable du nombre minimal
-    [SerializeField] private int maxNum; // Variable du nombre maximal
+    [SerializeField] private int minTime = 1; // Variable du temps minimal
+    [SerializeField] private int maxTime = 3; // Variable du temps maximal
+    [SerializeField] private int minNum = 5; // Variable du nombre minimal
+    [SerializeField] private int maxNum = 10; // Variable du nombre maximal
     private int[,] array;
 
     public void Interact()
     {
-        minTime = 1;
-        maxTime = 3;
-        minNum = 5;
-        maxNum = 10;
         array = new int[Random.Range(minNum, maxNum + 1), 2];
 
         for (int i = 0; i < array.GetLength(0); i++)
