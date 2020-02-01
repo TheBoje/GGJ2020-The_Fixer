@@ -27,13 +27,8 @@ public class Lever : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E) && !_state)
             {
-                transform.GetComponentInParent<SpriteRenderer>().color = Color.green;
+                //transform.GetComponentInParent<SpriteRenderer>().color = Color.green;
                 _state = true;
-            }
-            else if(Input.GetKeyDown(KeyCode.E) && _state)
-            {
-                transform.GetComponentInParent<SpriteRenderer>().color = Color.red;
-                _state = false;
             }
                 
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
   m_Name: Scene_1_Dial1_1
   m_EditorClassIdentifier: 
-  text: "Juliette: Hi, you\u2019re the fixer right ?"
+  text: "Juliette: Hi, you\u2019re the famous Fixer right ?"
   speed: 0.1
   choose: 0
   nextOption_1: {fileID: 11400000, guid: 9f507b9a9b630084f9e006a0360a673e, type: 2}

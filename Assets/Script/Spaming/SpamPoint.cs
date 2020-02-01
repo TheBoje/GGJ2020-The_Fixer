@@ -19,6 +19,8 @@ public class SpamPoint : MonoBehaviour
     [SerializeField] private Transform jaugeObject;
     [SerializeField] private Vector3 offset;
 
+    public bool state=false;
+
     private void Start()
     {
 
@@ -27,6 +29,13 @@ public class SpamPoint : MonoBehaviour
 
     private void Update()
     {
+        if (state)
+        {
+            jaugeObject.gameObject.SetActive(false);
+            return;
+
+        }
+
         DetectPlayer();
 
         if (isPlayerPresent)
@@ -48,7 +57,8 @@ public class SpamPoint : MonoBehaviour
 
         if(spamForce >= spamLimit)
         {
-            Destroy(this.gameObject);
+            jaugeObject.gameObject.SetActive(false);
+            state = true;
         }
 
     }

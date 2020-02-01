@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
   m_Name: Scene_1_Dial1_4
   m_EditorClassIdentifier: 
-  text: 'Fixer: Yeah sure!'
+  text: 'Fixer: Yeah for sure!'
   speed: 0
   choose: 0
   nextOption_1: {fileID: 0}

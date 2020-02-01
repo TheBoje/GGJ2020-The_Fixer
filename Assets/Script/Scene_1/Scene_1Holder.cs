@@ -8,6 +8,9 @@ public class Scene_1Holder : MonoBehaviour
     [SerializeField] private DialoguePlayer dP;
     [SerializeField] private PlayerMovement player;
     [SerializeField] private float minRay = 1.5f;
+    [SerializeField] private SpriteRenderer cache1;
+    [SerializeField] private SpriteRenderer cache2;
+
 
     [SerializeField] private Vector3 spacePointState1;
 
@@ -45,15 +48,18 @@ public class Scene_1Holder : MonoBehaviour
         switch (state)
         {
             case 0:
-                StartCoroutine(WaitTime(2.0f,1));
+                StartCoroutine(WaitTime(1.0f,1));
+                Color tmp = cache1.color;
+                tmp.a = Mathf.Lerp(tmp.a, 0, 0.1f);
+                cache1.color = tmp;
                 break;
             case 1:
                 dolly.m_Path = chemin1;
 
                 player.folowTransform = dolly.transform;
                 player.folowAPoint = true;
-
                 dolly.m_Speed = player.speed;
+                
                 StartCoroutine(WaitTime(PathDistance(chemin1)/dolly.m_Speed + 1,2));
 
                 break;
