@@ -43,10 +43,13 @@ public class TetrisLike : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log(transform.rotation.eulerAngles.z);
+
         bool test_part_1 = isInPostition(part1, POS_X, POS_Y_1),
-             test_part_2 = isInPostition(part2, -POS_X, -POS_Y_2),
-             test_part_3 = isInPostition(part3, -POS_X, POS_Y_1),
-             test_part_4 = isInPostition(part4, POS_X, -POS_Y_1);
+            test_part_2 = isInPostition(part2, -POS_X, -POS_Y_2),
+            test_part_3 = isInPostition(part3, -POS_X, POS_Y_1),
+            test_part_4 = isInPostition(part4, POS_X, -POS_Y_1);
 
         // on test la position de chaque parties et si elle ne sont pas à leurs position on regarde si elles peuvent y être PUTAIN DE GIT
         if (!test_part_1)
@@ -60,6 +63,10 @@ public class TetrisLike : MonoBehaviour
 
         if (test_part_1 && test_part_2 && test_part_3 && test_part_4)
             _state = true;
+
+        
+
+        
     }
 
 
