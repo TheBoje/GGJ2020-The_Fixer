@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class QTEUIScript : MonoBehaviour
 {
-    [SerializeField] private Image Default_Num1;
-    [SerializeField] private Image Default_Num2;
-    [SerializeField] private Image Default_Num3;
-    [SerializeField] private int length_list;
+    [SerializeField] private Text Default_Num1;
+    [SerializeField] private Text Default_Num2;
+    [SerializeField] private Text Default_Num3;
     [SerializeField] private int sum_succes = 0;
     [SerializeField] private Image UICanvas;
     private KeyCode key1 = KeyCode.Keypad1;
@@ -17,6 +16,9 @@ public class QTEUIScript : MonoBehaviour
     [SerializeField] private AudioSource LooseAudio;
     [SerializeField] private AudioSource WinAudio;
     [SerializeField] private GameObject focusItem;
+    [SerializeField] private GameObject particuleGreen;
+    [SerializeField] private GameObject particuleRed;
+    [SerializeField] private GameObject particuleYellow;
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class QTEUIScript : MonoBehaviour
         Default_Num3.color = new Color(1, 1, 1, 0);
     }
 
-    public void MoveUICanvas_aux(Image image, KeyCode key1, KeyCode key2, KeyCode key3)
+    public void MoveUICanvas_aux(Text image, KeyCode key1, KeyCode key2, KeyCode key3)
     {
         StartCoroutine(FadeImage(false, image, key1, key2, key3));
     }
@@ -36,15 +38,12 @@ public class QTEUIScript : MonoBehaviour
         {
             case 1:
                 MoveUICanvas_aux(Default_Num1, key1, key2, key3);
-                //Debug.Log("Spawning item 1");
                 break;
             case 2:
                 MoveUICanvas_aux(Default_Num2, key2, key1, key3);
-                //Debug.Log("Spawning item 2");
                 break;
             case 3:
                 MoveUICanvas_aux(Default_Num3, key3, key1, key2);
-                //Debug.Log("Spawning item 3");
                 break;
             default:
                 Debug.LogError("Erreur instanciation MoveUICanvas() from QTEUIScript, id unknown");
@@ -52,7 +51,7 @@ public class QTEUIScript : MonoBehaviour
         }
     }
 
-    IEnumerator FadeImage(bool fadeAway, Image img, KeyCode key1, KeyCode key2, KeyCode key3) // fadeAway = true -> FadeOut, fadeAway = false -> FadeIn
+    IEnumerator FadeImage(bool fadeAway, Text img, KeyCode key1, KeyCode key2, KeyCode key3) // fadeAway = true -> FadeOut, fadeAway = false -> FadeIn
     {
         float time = Time.deltaTime / 2;
 
@@ -63,7 +62,7 @@ public class QTEUIScript : MonoBehaviour
                 if (Input.GetKey(key1))
                 {
                     img.color = new Color(1, 1, 1, 0);
-                    GoodButton(key1);
+                    GoodButton(img);
                     SoundButton(img);
                     sum_succes += 1;
                     break;
@@ -72,13 +71,14 @@ public class QTEUIScript : MonoBehaviour
                 {
                     img.color = new Color(1, 1, 1, 0);
                     sum_succes = -1;
-                    Badbutton(key1);
+                    Badbutton(img);
                     break;
                 }
                 else if (i < 0.05f)
                 {
                     sum_succes = -1;
                     img.color = new Color(1, 1, 1, 0);
+                    Overtime(img);
                     break;
                 }
                 img.color = new Color(1, 1, 1, i);
@@ -93,7 +93,7 @@ public class QTEUIScript : MonoBehaviour
                 {
                     img.color = new Color(1, 1, 1, 0);
                     sum_succes += 1;
-                    GoodButton(key1);
+                    GoodButton(img);
                     SoundButton(img);
                     break;
                 }
@@ -101,7 +101,7 @@ public class QTEUIScript : MonoBehaviour
                 {
                     sum_succes = -1;
                     img.color = new Color(1, 1, 1, 0);
-                    Badbutton(key1);
+                    Badbutton(img);
                     break; 
                 }
                 img.color = new Color(1, 1, 1, i);
@@ -117,8 +117,7 @@ public class QTEUIScript : MonoBehaviour
 
     IEnumerator PlayQTE(List<int> keys, List<int> timings)  // Coroutine main, Distribue les valeurs dans le switch
     {
-        length_list = keys.Count;
-        UICanvas.color = new Color(UICanvas.color.r, UICanvas.color.g, UICanvas.color.b, 255f);
+        //UICanvas.color = new Color(UICanvas.color.r, UICanvas.color.g, UICanvas.color.b, 255f);
         for (int i = 0; i < keys.Count; i++)
         {
             if (sum_succes != -1)
@@ -153,32 +152,40 @@ public class QTEUIScript : MonoBehaviour
     private void QTEFail(GameObject GO)
     {
         LooseAudio.Play();
-        UICanvas.color = new Color(UICanvas.color.r, UICanvas.color.g, UICanvas.color.b, 0f);
+        //UICanvas.color = new Color(UICanvas.color.r, UICanvas.color.g, UICanvas.color.b, 0f);
         sum_succes = 0;
     }
      private void QTEWin(GameObject GO)
     {
         WinAudio.Play();
-        UICanvas.color = new Color(UICanvas.color.r, UICanvas.color.g, UICanvas.color.b, 0f);
+        //UICanvas.color = new Color(UICanvas.color.r, UICanvas.color.g, UICanvas.color.b, 0f);
         sum_succes = 0;
     }
 
-    private void SoundButton(Image img)
+    private void SoundButton(Text img)
     {
         img.GetComponent<AudioSource>().Play();
     }
-    private void Overtime()
+    private void Overtime(Text img)
     {
-        Debug.Log("Overtime effect");
+        Vector3 temp = img.GetComponent<RectTransform>().transform.position;
+        particuleYellow.transform.position = temp + new Vector3(0f, 0f, -5f);
+        particuleYellow.GetComponent<ParticleSystem>().Play();
+        Debug.Log("Overtime");
     }
 
-    private void GoodButton(KeyCode key)
+    private void GoodButton(Text img)
     {
-        Debug.Log("Effet de particules sur le bouton " + key + " positif");
+        Vector3 temp = img.GetComponent<RectTransform>().transform.position;
+        particuleGreen.transform.position = temp + new Vector3(0f, 0f, -5f);
+        particuleGreen.GetComponent<ParticleSystem>().Play();
     }
 
-    private void Badbutton(KeyCode key)
+    private void Badbutton(Text img)
     {
-        Debug.Log("Effet de particules sur le bouton " + key + " négatif");
+        Vector3 temp = img.GetComponent<RectTransform>().transform.position;
+        particuleRed.transform.position = temp + new Vector3(0f, 0f, -5f);
+        particuleRed.GetComponent<ParticleSystem>().Play();
+        Debug.Log("Bad bouton");
     }
 }
