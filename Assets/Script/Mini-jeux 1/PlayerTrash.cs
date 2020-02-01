@@ -11,7 +11,7 @@ public class PlayerTrash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Trash" && Input.GetButtonDown("Use") && isInteracting == false)
         {
-            //collision.gameObject.GetComponent<TrashState>().Interact();
+            //collision.gameObject.GetComponent<TrashState>().Interact(); 
             isInteracting = true;
         }
         else if ( isInteracting == true)
