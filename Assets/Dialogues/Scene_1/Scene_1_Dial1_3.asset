@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
   m_Name: Scene_1_Dial1_3
   m_EditorClassIdentifier: 
-  text: "<b><color=orange>Juliette</color></b>: Actually it\u2019s nothing, no big
-    deal, i just broke a porcelain vase and it spreaded everywhere could you take
-    the pieces and repair it ?"
+  text: "Juliette: Actually it\u2019s nothing, no big deal, i just broke a porcelain
+    vase and it spreaded everywhere could you take the pieces and repair it ?"
   speed: 0.05
   choose: 0
-  nextOption_1: {fileID: 0}
+  nextOption_1: {fileID: 11400000, guid: c88d09fb6419dec4aa0381f8654c5bfb, type: 2}
   textChoix1: 
   nextOption_2: {fileID: 0}
   textChoix2: 

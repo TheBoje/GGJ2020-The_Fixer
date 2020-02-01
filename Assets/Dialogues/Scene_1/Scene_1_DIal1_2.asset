@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
   m_Name: Scene_1_DIal1_2
   m_EditorClassIdentifier: 
-  text: "<b><color=blue>Fixer</color></b>: Yes that\u2019s it, you called me yesterday
-    what\u2019s the matter ?"
+  text: "Fixer: Yes that\u2019s it, you called me yesterday what\u2019s the matter
+    ?"
   speed: 0.1
   choose: 0
   nextOption_1: {fileID: 11400000, guid: c2e9bace7769aff438e1b1632a67b5dc, type: 2}

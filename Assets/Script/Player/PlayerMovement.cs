@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb; // Rigidbody du player
 
+    public bool canMove;
+    public bool folowAPoint;
+    public Transform folowTransform;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,9 +21,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // Récupération des inputs selon l'input manager de Unity
+        if (canMove)
+        {
+            
+            input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // Récupération des inputs selon l'input manager de Unity
+        }
+        else
+        {
+            if (folowAPoint && folowTransform != null)
+            {
+                input = (folowTransform.position - transform.position).normalized;
+            }
+            else
+            {
+                input = Vector3.zero;
+            }
+        }      
 
-        rb.velocity = input * speed; // Application de la vitesse au personnage ( + linéarisation avec Time.deltaTime)
+
+        rb.velocity = input * speed; // Application de la vitesse au personnage
     }
+
 
 }

@@ -17,9 +17,11 @@ public class Bridge : MonoBehaviour
     [SerializeField] private const short _nbRepairMax = 3;  // Nombre de réparation à effectuer
     [SerializeField] private short _nbRepair;               // Nombre de réparations encore nécessaire
     [SerializeField] private bool _state;                   // Etat du pont (false = détruit, true = reconstruit)
-    //[SerializeField] private bool isPlayerPresent;
+    [SerializeField] private bool isPlayerPresent;
+    [SerializeField] private Sprite stateSprite;
+    [SerializeField] private SpriteRenderer spriteR;
 
-    private const float MAX_FILLED_BAR = 1.0f, MIN_FILLED_BAR = 0.0f, RADIUS = 2.0f;
+    private const float MAX_FILLED_BAR = 1.0f, MIN_FILLED_BAR = 0.0f, RADIUS = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,10 @@ public class Bridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_state)
+        {
+            return;
+        }
         if (Time.time - time > timeStamp)
         {
             particules.SetActive(false);
@@ -89,10 +95,12 @@ public class Bridge : MonoBehaviour
     private void DetectPlayer()
     {
         RaycastHit2D[] around = Physics2D.CircleCastAll(transform.position, RADIUS, Vector3.up);
+        isPlayerPresent = false;
         foreach (RaycastHit2D hit in around)
         {
             if (hit.transform.tag == "Player")
             {
+                isPlayerPresent = true;
                 if (!_state)
                 {
                     foreach (Transform child in playerInventory.transform)
@@ -125,6 +133,7 @@ public class Bridge : MonoBehaviour
                             if (_nbRepair == 0)
                             {
                                 _state = true;
+                                spriteR.sprite = stateSprite;
                                 bridge.GetComponent<BoxCollider2D>().enabled = false;
                             }
                         }
@@ -147,6 +156,11 @@ public class Bridge : MonoBehaviour
     public short nbRepair
     {
         get { return _nbRepair; }
+    }
+
+    public short nbRepairMax
+    {
+        get { return _nbRepairMax; }
     }
 
     public bool state
