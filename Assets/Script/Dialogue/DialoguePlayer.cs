@@ -17,6 +17,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private Text textOption2;
 
     private bool playing;
+    public bool reading;
     private bool option1;
     private bool option2;
 
@@ -41,8 +42,11 @@ public class DialoguePlayer : MonoBehaviour
      */
     public void Read(int indice)
     {
+        if (reading)
+            return;
         Debug.Log("Start Reading...");
         screenUI = true;
+        reading = true;
         StartCoroutine(DialogueAnim(indice));
 
     }
@@ -125,6 +129,7 @@ public class DialoguePlayer : MonoBehaviour
 
         }
         screenUI = false;
+        reading = false;
     }
 
     private void OnGUI()
