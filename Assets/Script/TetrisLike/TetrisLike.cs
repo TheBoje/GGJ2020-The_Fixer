@@ -56,6 +56,7 @@ public class TetrisLike : MonoBehaviour
         if (!test_part_4)
             placeInPosition(part4, POS_X, -POS_Y_1);
 
+<<<<<<< HEAD
 	Debug.Log(test_part_1);
 	Debug.Log(test_part_2);
 	Debug.Log(test_part_3);
@@ -68,6 +69,10 @@ public class TetrisLike : MonoBehaviour
 
 		_state = true;
 	}
+=======
+        if (test_part_1 && test_part_2 && test_part_3 && test_part_4)
+            _state = true;
+>>>>>>> remotes/origin/Niveau1
     }
 
 
