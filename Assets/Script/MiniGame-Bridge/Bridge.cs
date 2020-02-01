@@ -45,24 +45,26 @@ public class Bridge : MonoBehaviour
                     {
                         progressBar.enabled = true;
 
+                        // On appuis sur E tant que la barre de progression n'est pas fini
                         if(progressBar.fillAmount < MAX_FILLED_BAR && Input.GetKeyDown(KeyCode.E))
                         {
                             Debug.Log("YO");
-                            progressBar.fillAmount += 0.25f;
+                            progressBar.fillAmount += 0.25f; // On remplie la barre au fur et à mesure
                             particules.SetActive(true);
                         }
 
                         particules.SetActive(false);
 
+                        // Dés que la barre est full
                         if(progressBar.fillAmount >= MAX_FILLED_BAR)
                         {
                             _nbRepair--;
-                            child.GetComponent<BridgeParts>().DestroyPart();
-                            progressBar.enabled = false;
-                            progressBar.fillAmount = MIN_FILLED_BAR;
+                            child.GetComponent<BridgeParts>().DestroyPart(); // on détruit le morceau de pont
+                            progressBar.enabled = false; // on enlève la barre de progression
+                            progressBar.fillAmount = MIN_FILLED_BAR; // on la rempli au minimum
                         }
                         
-
+                        // Le pont est réparé, on peut passer
                         if (_nbRepair == 0)
                         {
                             _state = true;
@@ -91,6 +93,7 @@ public class Bridge : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        // si le joueur s'en va, on rénitialise la barre de progression
         if(collision.tag == "Player")
         {
             progressBar.enabled = false;
