@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // Récupération des inputs selon l'input manager de Unity
 
-        rb.velocity = input * speed * 100 * Time.deltaTime; // Application de la vitesse au personnage ( + linéarisation avec Time.deltaTime)
+        rb.velocity = input * speed; // Application de la vitesse au personnage ( + linéarisation avec Time.deltaTime)
     }
 
 }

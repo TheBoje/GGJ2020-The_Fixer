@@ -17,7 +17,7 @@ public class Bridge : MonoBehaviour
     [SerializeField] private const short _nbRepairMax = 3;  // Nombre de réparation à effectuer
     [SerializeField] private short _nbRepair;               // Nombre de réparations encore nécessaire
     [SerializeField] private bool _state;                   // Etat du pont (false = détruit, true = reconstruit)
-    [SerializeField] private bool isPlayerPresent;
+    //[SerializeField] private bool isPlayerPresent;
 
     private const float MAX_FILLED_BAR = 1.0f, MIN_FILLED_BAR = 0.0f, RADIUS = 2.0f;
 
@@ -27,7 +27,6 @@ public class Bridge : MonoBehaviour
         time = Time.time;
         _nbRepair = _nbRepairMax;
         _state = false;
-        isPlayerPresent = false;
         particules.SetActive(false);
         particules.GetComponent<ParticleSystem>().playbackSpeed = 10.0f;
     }
@@ -39,8 +38,9 @@ public class Bridge : MonoBehaviour
         {
             particules.SetActive(false);
         }
+        DetectPlayer();
     }
-
+    /*
     public void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -56,7 +56,7 @@ public class Bridge : MonoBehaviour
                         // On appuis sur E tant que la barre de progression n'est pas fini
                         if(progressBar.fillAmount < MAX_FILLED_BAR && Input.GetKeyDown(KeyCode.E))
                         {
-                            Debug.Log("YO");
+                            //Debug.Log("YO");
                             progressBar.fillAmount += 0.25f; // On remplie la barre au fur et à mesure
                             time = Time.time;
                             particules.SetActive(true);
@@ -83,22 +83,56 @@ public class Bridge : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
-/*
+
     private void DetectPlayer()
     {
         RaycastHit2D[] around = Physics2D.CircleCastAll(transform.position, RADIUS, Vector3.up);
-        bool detect = false;
         foreach (RaycastHit2D hit in around)
         {
             if (hit.transform.tag == "Player")
             {
-                detect = true;
+                if (!_state)
+                {
+                    foreach (Transform child in playerInventory.transform)
+                    {
+                        if (child.tag == "BridgePart")
+                        {
+                            progressBar.enabled = true;
+
+                            // On appuis sur E tant que la barre de progression n'est pas fini
+                            if (progressBar.fillAmount < MAX_FILLED_BAR && Input.GetButtonDown("Fire1"))
+                            {
+                                //Debug.Log("YO");
+                                progressBar.fillAmount += 0.25f; // On remplie la barre au fur et à mesure
+                                time = Time.time;
+                                particules.SetActive(true);
+                            }
+
+
+
+                            // Dés que la barre est full
+                            if (progressBar.fillAmount >= MAX_FILLED_BAR)
+                            {
+                                _nbRepair--;
+                                child.GetComponent<BridgeParts>().DestroyPart(); // on détruit le morceau de pont
+                                progressBar.enabled = false; // on enlève la barre de progression
+                                progressBar.fillAmount = MIN_FILLED_BAR; // on la rempli au minimum
+                            }
+
+                            // Le pont est réparé, on peut passer
+                            if (_nbRepair == 0)
+                            {
+                                _state = true;
+                                bridge.GetComponent<BoxCollider2D>().enabled = false;
+                            }
+                        }
+                    }
+                }
             }
         }
-        isPlayerPresent = detect;
-    }*/
+    }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
