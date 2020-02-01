@@ -8,28 +8,27 @@ public class TrashState : MonoBehaviour
     [SerializeField] private int maxTime = 3; // Variable du temps maximal
     [SerializeField] private int minNum = 5; // Variable du nombre minimal
     [SerializeField] private int maxNum = 10; // Variable du nombre maximal
-    private int[,] array;
+
+    [SerializeField] private int length;
+    [SerializeField] private List<int> keys;
+    [SerializeField] private List<int> timings;
 
     public void Interact()
     {
-        array = new int[Random.Range(minNum, maxNum + 1), 2];
-
-        for (int i = 0; i < array.GetLength(0); i++)
+        length = Random.Range(minNum, maxNum);
+        keys = new List<int>() { Random.Range(1, 4) };
+        timings = new List<int>() { Random.Range(minTime, maxTime + 1) };
+        int r;
+        for (int i = 0; i < length -1; i++)
         {
-            int random = Random.Range(1, 4);
-
-            array[i, 0] = random;
+            r = Random.Range(1, 4);
+            keys.Add(r);
         }
-
-        for (int i = 0; i < array.GetLength(0) - 1; i++)
+        for (int i = 0; i < length; i++)
         {
-            int random = Random.Range(minTime, maxTime + 1);
-
-            array[i, 1] = random;
+            r = Random.Range(minTime, maxTime + 1);
+            timings.Add(r);
         }
-
-        array[array.GetLength(0) - 1, 1] = 0;
-
-        gameObject.GetComponent<GameScriptMG1>().StartQTE(this.gameObject, array);
+        GameObject.Find("Game Manager").GetComponent<GameScriptMG1>().StartQTE(gameObject, keys, timings);
     }
 }

@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class GameScriptMG1 : MonoBehaviour
 {
+    /*
     public void Wait(float seconds)
     {
         StartCoroutine(_wait(seconds));
     }
     IEnumerator _wait(float time)
     {
+        Debug.Log("TIME : " + time);
         yield return new WaitForSeconds(time);
     }
+    */
 
-
-    public void StartQTE(GameObject GO, int[,] list)
+    public void StartQTE(GameObject GO, List<int> keys, List<int> timings)
     {
-        for (int i = 0; i < list.GetLength(0); i++)
-        {
-            Debug.Log(list[i, 0]);
-            Wait(list[i, 1]);
-            Debug.Log("Waited " + list[i, 1]);
-        }
+        Debug.Log("QTE FUNCTION");
         GameObject.Find("Player").GetComponent<PlayerTrash>().isInteracting = false;
+        Destroy(GO);
     }
 }

@@ -9,7 +9,7 @@ public class PlayerTrash : MonoBehaviour
 
     private void Update()
     {
-        isPressingUse = Input.GetButton("Use");
+        isPressingUse = Input.GetButton("Use"); //TODO Fix this shit please ( louis de demain, soit pas con stp)
     }
 
     
@@ -17,7 +17,7 @@ public class PlayerTrash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Trash" && !isInteracting && isPressingUse)
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            Debug.Log("Working action");
             isInteracting = true;
             collision.gameObject.GetComponent<TrashState>().Interact();             
         }
