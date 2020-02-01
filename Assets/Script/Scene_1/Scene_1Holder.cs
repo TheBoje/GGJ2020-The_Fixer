@@ -25,6 +25,12 @@ public class Scene_1Holder : MonoBehaviour
     [SerializeField] private Transform playerLight;
     [SerializeField] private Lever bathroomCollider;
 
+
+    [SerializeField] private Lever elecSwitch;
+    [SerializeField] private SpamPoint chaudiere;
+
+
+
     public int state;
 
     private IEnumerator WaitTime(float time,int nextState)
@@ -42,6 +48,12 @@ public class Scene_1Holder : MonoBehaviour
         }
 
         return distance;
+    }
+
+    private void Start()
+    {
+        elecSwitch.enabled = false;
+        chaudiere.enabled = false;
     }
 
     private void Update()
@@ -138,8 +150,26 @@ public class Scene_1Holder : MonoBehaviour
                 break;
             case 15:
                 dP.Read(5);
+                state = 16;
                 break;
-
+            case 16:
+                if (!dP.reading)
+                {
+                    state = 17;
+                }
+                break;
+            case 17:
+                player.canMove = true;
+                if (bathroomCollider.state)
+                {
+                    state = 18;
+                }
+                break;
+            case 18:
+                Destroy(bathroomCollider.gameObject);
+                Destroy(cache2.gameObject);
+                state = 19;
+                break;
 
             default:
                 break;

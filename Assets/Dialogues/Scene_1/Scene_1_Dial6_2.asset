@@ -16,7 +16,7 @@ MonoBehaviour:
     long before i make this room shine again.'
   speed: 0.05
   choose: 0
-  nextOption_1: {fileID: 0}
+  nextOption_1: {fileID: 11400000, guid: d073383a5b0965645bed64ef299b4005, type: 2}
   textChoix1: 
   nextOption_2: {fileID: 0}
   textChoix2: 
