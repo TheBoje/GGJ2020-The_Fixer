@@ -23,6 +23,7 @@ public class Scene_1Holder : MonoBehaviour
 
     [SerializeField] private Transform generalLight;
     [SerializeField] private Transform playerLight;
+    [SerializeField] private Lever bathroomCollider;
 
     public int state;
 
@@ -133,6 +134,10 @@ public class Scene_1Holder : MonoBehaviour
                 break;
             case 14:
                 playerLight.gameObject.SetActive(true);
+                state = 15;
+                break;
+            case 15:
+                dP.Read(5);
                 break;
 
 
