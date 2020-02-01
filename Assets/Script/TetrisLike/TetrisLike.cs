@@ -48,7 +48,7 @@ public class TetrisLike : MonoBehaviour
              test_part_3 = isInPostition(part3, -POS_X, POS_Y_1),
              test_part_4 = isInPostition(part4, POS_X, -POS_Y_1);
 
-        // on test la position de chaque parties et si elle ne sont pas à leurs position on regarde si elles peuvent y être
+        // on test la position de chaque parties et si elle ne sont pas à leurs position on regarde si elles peuvent y être PUTAIN DE GIT
         if (!test_part_1)
             test_part_1 = placeInPosition(part1, POS_X, POS_Y_1);
         if (!test_part_2)
