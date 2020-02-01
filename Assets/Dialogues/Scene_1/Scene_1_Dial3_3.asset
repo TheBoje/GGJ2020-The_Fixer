@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene_1_Dial3_3
   m_EditorClassIdentifier: 
   text: "Juliette: Thanks i\u2019m so glad that i can finally look at it again !"
-  speed: 0.1
+  speed: 0.05
   choose: 0
   nextOption_1: {fileID: 0}
   textChoix1: 

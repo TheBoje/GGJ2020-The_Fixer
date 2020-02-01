@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene_1_Dial2
   m_EditorClassIdentifier: 
   text: 'Juliette : I supose you guess it alone, but the vase is on the table.'
-  speed: 0
+  speed: 0.05
   choose: 0
   nextOption_1: {fileID: 0}
   textChoix1: 

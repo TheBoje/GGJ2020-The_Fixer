@@ -25,7 +25,7 @@ public class Lever : MonoBehaviour
         // On vérifie si le player et à porté et si il appuis sur E on change l'état du levier
         if(collision.tag == "Player")
         {
-            if(Input.GetKeyDown(KeyCode.E) && !_state)
+            if(Input.GetButtonDown("Fire1") && !_state)
             {
                 //transform.GetComponentInParent<SpriteRenderer>().color = Color.green;
                 _state = true;

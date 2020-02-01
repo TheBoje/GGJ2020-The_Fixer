@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene_1_Dial3_2
   m_EditorClassIdentifier: 
   text: 'Fixer: I''m done with it!'
-  speed: 0.1
+  speed: 0.05
   choose: 0
   nextOption_1: {fileID: 11400000, guid: fadb636010c6d3646b94a3f2bd248d1b, type: 2}
   textChoix1: 

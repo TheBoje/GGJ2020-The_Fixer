@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Scene_1_Dial1_4
   m_EditorClassIdentifier: 
   text: 'Fixer: Yeah for sure!'
-  speed: 0
+  speed: 0.05
   choose: 0
-  nextOption_1: {fileID: 0}
+  nextOption_1: {fileID: 11400000, guid: f104ea16caeffe749ba91dcc8b45743b, type: 2}
   textChoix1: 0.2
   nextOption_2: {fileID: 0}
   textChoix2: 

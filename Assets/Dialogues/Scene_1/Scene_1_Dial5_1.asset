@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene_1_Dial5_1
   m_EditorClassIdentifier: 
   text: 'FIxer : Your house is quite a mess.'
-  speed: 0
+  speed: 0.05
   choose: 0
   nextOption_1: {fileID: 11400000, guid: 0fdb83de1258b844b86146826046f5ee, type: 2}
   textChoix1: 

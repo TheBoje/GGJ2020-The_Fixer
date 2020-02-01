@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene_1_Dial3_1
   m_EditorClassIdentifier: 
   text: You manage to put the pieces together...
-  speed: 0.1
+  speed: 0.05
   choose: 0
   nextOption_1: {fileID: 11400000, guid: 48f3cfe0ce7dbd84caa8165416b7631a, type: 2}
   textChoix1: 
