@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 0
+  isPressingUse: 0
 --- !u!1 &95521059567327026
 GameObject:
   m_ObjectHideFlags: 0
