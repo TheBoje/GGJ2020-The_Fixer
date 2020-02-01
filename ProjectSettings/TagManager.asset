@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - BridgePart
-=======
   - Trash
->>>>>>> remotes/origin/Mini-jeux
   layers:
   - Default
   - TransparentFX

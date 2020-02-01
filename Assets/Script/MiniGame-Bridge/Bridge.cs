@@ -11,6 +11,9 @@ public class Bridge : MonoBehaviour
     [SerializeField] private GameObject bridge;
     [SerializeField] private GameObject particules;
 
+    [SerializeField] private float time;
+    [SerializeField] private const float timeStamp = .25f;
+
     [SerializeField] private const short _nbRepairMax = 3;  // Nombre de réparation à effectuer
     [SerializeField] private short _nbRepair;               // Nombre de réparations encore nécessaire
     [SerializeField] private bool _state;                   // Etat du pont (false = détruit, true = reconstruit)
@@ -21,16 +24,21 @@ public class Bridge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        time = Time.time;
         _nbRepair = _nbRepairMax;
         _state = false;
         isPlayerPresent = false;
         particules.SetActive(false);
+        particules.GetComponent<ParticleSystem>().playbackSpeed = 10.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Time.time - time > timeStamp)
+        {
+            particules.SetActive(false);
+        }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -50,10 +58,11 @@ public class Bridge : MonoBehaviour
                         {
                             Debug.Log("YO");
                             progressBar.fillAmount += 0.25f; // On remplie la barre au fur et à mesure
+                            time = Time.time;
                             particules.SetActive(true);
                         }
 
-                        particules.SetActive(false);
+
 
                         // Dés que la barre est full
                         if(progressBar.fillAmount >= MAX_FILLED_BAR)
