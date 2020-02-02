@@ -337,7 +337,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_Font: {fileID: 12800000, guid: 612ae416d6e4f344e99d01fcdc4860f8, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: 'Sound Designer : Vincent TOURENNE, Benjamin.'
+  m_Text: 'Sound Designer : Vincent "Turnute" TOURENNE, Benjamin "Warlods" CHEVAIS.'
 --- !u!222 &506796604
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -484,8 +484,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.15, y: 81}
-  m_SizeDelta: {x: 777.7, y: 50.5}
+  m_AnchoredPosition: {x: -7.3, y: 81}
+  m_SizeDelta: {x: 740.9, y: 50.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034617339
 MonoBehaviour:
@@ -506,7 +506,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_Font: {fileID: 12800000, guid: 612ae416d6e4f344e99d01fcdc4860f8, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -515,11 +515,11 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Programming : Simon FEUGEAS, Louis \"Boje\" LEENART, Vincent COMMIN, Yannis,\n
-    Yann \"Eygodon\" BERTHELOT ."
+  m_Text: "Programming : Simon \"Linkouille\" FEUGEAS, Louis \"Boje\" LEENART, Vincent
+    \"Altimor\" COMMIN, Yannis SAUZEAU,\r Yann \"Eygodon\" BERTHELOT."
 --- !u!222 &1034617340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_Font: {fileID: 12800000, guid: 612ae416d6e4f344e99d01fcdc4860f8, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1035,7 +1035,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_Font: {fileID: 12800000, guid: 612ae416d6e4f344e99d01fcdc4860f8, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: 'Game Design : Charlie VIALLE,  Thomas LUNETEAU.'
+  m_Text: 'Game Design : Charlie "Vodquik" VIALLE,  Thomas "thbl088" LUNETEAU.'
 --- !u!222 &1565459167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_Font: {fileID: 12800000, guid: 612ae416d6e4f344e99d01fcdc4860f8, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1124,7 +1124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 2
-  m_Text: 'Scenario : Yann "Eygodon" BERTHELOT, Alexis LOUAIL.'
+  m_Text: 'Scenario : Yann "Eygodon" BERTHELOT, Alexis "MRFoxys" LOUAIL.'
 --- !u!222 &1865815074
 CanvasRenderer:
   m_ObjectHideFlags: 0
