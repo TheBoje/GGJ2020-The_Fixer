@@ -16,6 +16,8 @@ public class Scene_1Holder : MonoBehaviour
 
     [SerializeField] private CinemachineSmoothPath chemin1;
     [SerializeField] private CinemachineSmoothPath chemin2;
+    [SerializeField] private CinemachineSmoothPath chemin3;
+    [SerializeField] private CinemachineSmoothPath chemin4;
 
     [SerializeField] private CinemachineDollyCart dolly;
 
@@ -23,11 +25,15 @@ public class Scene_1Holder : MonoBehaviour
 
     [SerializeField] private Transform generalLight;
     [SerializeField] private Transform playerLight;
+
     [SerializeField] private Lever bathroomCollider;
 
 
     [SerializeField] private Lever elecSwitch;
     [SerializeField] private SpamPoint chaudiere;
+
+
+    [SerializeField] private Transform BGMTransform;
 
 
 
@@ -54,6 +60,7 @@ public class Scene_1Holder : MonoBehaviour
     {
         elecSwitch.enabled = false;
         chaudiere.enabled = false;
+        bathroomCollider.enabled = false;
     }
 
     private void Update()
@@ -141,7 +148,9 @@ public class Scene_1Holder : MonoBehaviour
                 }
                 break;
             case 13:
-                generalLight.GetComponent<Light>().intensity = 0.5f;
+                generalLight.GetComponent<Light>().intensity = 0.25f;
+                bathroomCollider.enabled = false;
+                BGMTransform.gameObject.SetActive(false);
                 StartCoroutine(WaitTime(1f, 14));
                 break;
             case 14:
@@ -166,11 +175,78 @@ public class Scene_1Holder : MonoBehaviour
                 }
                 break;
             case 18:
-                Destroy(bathroomCollider.gameObject);
+                Destroy(bathroomCollider.transform.parent.gameObject);
                 Destroy(cache2.gameObject);
+                elecSwitch.enabled = true;
                 state = 19;
                 break;
+            case 19:
+                if (elecSwitch.state)
+                {
+                    state = 20;
+                }
+                break;
+            case 20:
+                playerLight.gameObject.SetActive(false);
+                generalLight.GetComponent<Light>().intensity = 1.25f;
+                BGMTransform.gameObject.SetActive(true);
+                player.canMove = false;
+                dP.Read(6);
+                state = 21;
+                break;
+            case 21:
+                if (!dP.reading)
+                {
+                    state = 22;
+                }
+                break;
+            case 22:
+                player.canMove = true;
+                chaudiere.enabled = true;
+                state = 23;
+                break;
+            case 23:
+                if (chaudiere.state)
+                {
+                    state = 24;
+                }
+                break;
+            case 24:
 
+                player.canMove = false;
+                dolly.m_Path = chemin3;
+
+                player.folowTransform = dolly.transform;
+                player.folowAPoint = true;
+
+                dolly.m_Speed = player.speed;
+                StartCoroutine(WaitTime(PathDistance(chemin3) / dolly.m_Speed + 4, 25));
+                break;
+            case 25:
+                player.folowTransform = null;
+                player.folowAPoint = false;
+                dP.Read(7);
+                state = 26;
+                break;
+            case 26:
+                if (!dP.reading)
+                {
+                    state = 27;
+                }
+                break;
+            case 27:
+                player.canMove = false;
+                dolly.m_Path = chemin4;
+
+                player.folowTransform = dolly.transform;
+                player.folowAPoint = true;
+
+                dolly.m_Speed = player.speed;
+                StartCoroutine(WaitTime(PathDistance(chemin4) / dolly.m_Speed + 1, 28));
+                break;
+            case 28:
+                //LOad level
+                break;
             default:
                 break;
         }

@@ -9,7 +9,7 @@ public class TestDIalogueActivator : MonoBehaviour
     [SerializeField] private int indice;
     [SerializeField] private bool isPlayerPresent;
 
-    private float radius = 0.10f;
+    private float radius = 0.50f;
     private bool played = false;
 
     private void OnTriggerStay2D(Collider2D collision)

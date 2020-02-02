@@ -19,6 +19,11 @@ public class SpamPoint : MonoBehaviour
     [SerializeField] private Transform jaugeObject;
     [SerializeField] private Vector3 offset;
 
+    [SerializeField] private Sprite fixedSprite;
+    [SerializeField] private SpriteRenderer render;
+
+    [SerializeField] private AudioSource aS;
+
     public bool state=false;
 
     private void Start()
@@ -43,6 +48,7 @@ public class SpamPoint : MonoBehaviour
             if(Input.GetButtonDown("Fire1"))
             {
                 spamForce++;
+                aS.Play();
                 Camera.main.transform.DOComplete();
                 Camera.main.transform.DOShakePosition(.2f, .25f, 14, 90, false, true);
             }
@@ -57,7 +63,14 @@ public class SpamPoint : MonoBehaviour
 
         if(spamForce >= spamLimit)
         {
+            Destroy(GetComponent<Animator>());
+            if (GetComponent<AudioSource>())
+            {
+                Destroy(GetComponent<AudioSource>());
+                Destroy(GetComponent<AudioSource>());
+            }
             jaugeObject.gameObject.SetActive(false);
+            render.sprite = fixedSprite;
             state = true;
         }
 

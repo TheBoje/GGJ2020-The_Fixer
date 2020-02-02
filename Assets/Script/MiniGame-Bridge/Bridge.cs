@@ -21,6 +21,8 @@ public class Bridge : MonoBehaviour
     [SerializeField] private Sprite stateSprite;
     [SerializeField] private SpriteRenderer spriteR;
 
+    [SerializeField] private AudioSource aS;
+
     private const float MAX_FILLED_BAR = 1.0f, MIN_FILLED_BAR = 0.0f, RADIUS = 0.5f;
 
     // Start is called before the first frame update
@@ -114,6 +116,7 @@ public class Bridge : MonoBehaviour
                             {
                                 //Debug.Log("YO");
                                 progressBar.fillAmount += 0.25f; // On remplie la barre au fur et à mesure
+                                aS.Play();
                                 time = Time.time;
                                 particules.SetActive(true);
                             }
