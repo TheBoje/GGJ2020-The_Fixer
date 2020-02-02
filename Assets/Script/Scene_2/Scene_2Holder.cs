@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class Scene_2Holder : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Scene_2Holder : MonoBehaviour
     [SerializeField] private CinemachineDollyCart dolly;
 
     [SerializeField] private CinemachineSmoothPath chemin1;
+    [SerializeField] private CinemachineSmoothPath chemin2;
+
 
     [SerializeField] private PlayerMovement player;
     [SerializeField] private float minRay = 1.5f;
@@ -50,6 +53,7 @@ public class Scene_2Holder : MonoBehaviour
         switch (_state)
         {
             case 0 :
+                player.canMove = false;
                 dolly.m_Path = chemin1;
 
                 player.folowTransform = dolly.transform;
@@ -78,18 +82,38 @@ public class Scene_2Holder : MonoBehaviour
             case 4:
                 if (birdhouse.GetComponent<TetrisLike>().state)
                 {
-                    _state = 3;
+                    _state = 5;
                 }
                 break;
             case 5:
-                dP.Read(7);
-                _state = 5;
+                player.canMove = false;
+                dolly.m_Path = chemin2;
+
+                player.folowTransform = dolly.transform;
+                player.folowAPoint = true;
+                dolly.m_Speed = player.speed;
+
+                StartCoroutine(WaitTime(PathDistance(chemin2) / dolly.m_Speed + 12, 6));
                 break;
             case 6:
-                if (!dP.reading)
-                    _state = 6;
+                player.folowTransform = null;
+                player.folowAPoint = false;
+                dP.Read(7);
+                _state = 7;
                 break;
+            case 7:
+                if (!dP.reading)
+                {
+                    _state = 8;
 
+                }
+                break;
+            case 8:
+                StartCoroutine(WaitTime(2, 9));
+                break;
+            case 9:
+                SceneManager.LoadScene("0");
+                break;
 
             default:
                 break;
