@@ -90,14 +90,14 @@ public class QTEUIScript : MonoBehaviour
             {
                 if (Input.GetButton(key1)) // Si on press la Key1, alors on cache le txt, on lance les particules green et on mets le petit sound gentil, puis on sort de la boucle FOR
                 {
-                    txt.color = new Color(0, 0, 0, 0);
+                    txt.color = new Color(1, 1, 1, 0);
                     SoundButton(txt);
                     GoodButton(txt);
                     break;
                 }
                 else if (Input.GetButton(key2) || Input.GetButton(key3)) // Vérification de mauvais input, alors on cache le txt, on -1 sum_succes, et on lance les particules red
                 {
-                    txt.color = new Color(0, 0, 0, 0);
+                    txt.color = new Color(1, 1, 1, 0);
                     sum_succes = -1;
                     SoundButton(txt);
                     Badbutton(txt);
@@ -106,11 +106,11 @@ public class QTEUIScript : MonoBehaviour
                 else if (i < 0.05f) // Fade away, donc -1 sum_succes, cache le txt et lance les particules yellow
                 {
                     sum_succes = -1;
-                    txt.color = new Color(0, 0, 0, 0);
+                    txt.color = new Color(1, 1, 1, 0);
                     Overtime(txt);
                     break;
                 }
-                txt.color = new Color(0, 0, 0, i); // Application du FadeOut au txt
+                txt.color = new Color(1, 1, 1, i); // Application du FadeOut au txt
                 yield return null;
             }
         }
@@ -120,7 +120,7 @@ public class QTEUIScript : MonoBehaviour
             {
                 if (Input.GetButton(key1))
                 {
-                    txt.color = new Color(0, 0, 0, 0);
+                    txt.color = new Color(1, 1, 1, 0);
                     SoundButton(txt);
                     GoodButton(txt);
                     break;
@@ -128,12 +128,12 @@ public class QTEUIScript : MonoBehaviour
                 else if (Input.GetButton(key2) || Input.GetButton(key3))
                 {
                     sum_succes = -1;
-                    txt.color = new Color(0, 0, 0, 0);
+                    txt.color = new Color(1, 1, 1, 0);
                     SoundButton(txt);
                     Badbutton(txt);
                     break; 
                 }
-                txt.color = new Color(0, 0, 0, i);
+                txt.color = new Color(1, 1, 1, i);
                 if (i > 0.95f) // Au lieu de finir quand le FadeIn a fini, on relance mais en FadeOut
                 {
                     StartCoroutine(FadeImage(true, txt, key1, key2, key3));
