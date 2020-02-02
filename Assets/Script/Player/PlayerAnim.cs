@@ -27,10 +27,8 @@ public class PlayerAnim : MonoBehaviour
 
             if(Time.time - timeBstep >= timeStart)
             {
-
                 aS.Play();
                 timeStart = Time.time;
-
             }
             
         }
