@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private Transform bgm;
     // Start is called before the first frame update
     public void PlayGame() // Launch the fisrt level
     {
+        Destroy(bgm.gameObject);
+        Debug.Log("Destroy BGM");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

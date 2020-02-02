@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class Scene_1Holder : MonoBehaviour
 {
@@ -246,6 +247,7 @@ public class Scene_1Holder : MonoBehaviour
                 break;
             case 28:
                 //LOad level
+                SceneManager.LoadScene(0);
                 break;
             default:
                 break;
