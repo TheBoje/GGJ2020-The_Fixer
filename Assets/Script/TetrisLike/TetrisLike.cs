@@ -8,6 +8,7 @@ public class TetrisLike : MonoBehaviour
     [SerializeField] private GameObject part1, part2, part3, part4;
     private const float POS_X = 0.5f, POS_Y_1 = 1.5f, POS_Y_2 = 2.0f, TOLERATED_OFFSET = 0.5f, Z_AXIS = 0.0f, LINEAR_DRAG = 10.0f;
     [SerializeField] private bool _state;
+    [SerializeField] private GameObject bird;
 
     // Start is called before the first frame update
     void Start()
@@ -64,9 +65,8 @@ public class TetrisLike : MonoBehaviour
         if (test_part_1 && test_part_2 && test_part_3 && test_part_4)
             _state = true;
 
-        
 
-        
+        bird.SetActive(_state);
     }
 
 
