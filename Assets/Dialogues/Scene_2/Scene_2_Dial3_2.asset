@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
+  m_Name: Scene_2_Dial3_2
+  m_EditorClassIdentifier: 
+  text: 'Claude : Yeah I know, i made the call. Can you just repair the birdhouse
+    over there in order to finally lead the dispute between my son and me to an end
+    ?'
+  speed: 0.1
+  choose: 0
+  nextOption_1: {fileID: 11400000, guid: 38cd89f8c801f27418f3ef8c3440f3d6, type: 2}
+  textChoix1: 
+  nextOption_2: {fileID: 0}
+  textChoix2: 
