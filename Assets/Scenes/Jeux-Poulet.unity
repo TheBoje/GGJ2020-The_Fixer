@@ -469,6 +469,21 @@ PrefabInstance:
       propertyPath: chicken
       value: 
       objectReference: {fileID: 1510553049}
+    - target: {fileID: 2277808558756142523, guid: 8b25315159a71fe4d85381bc3a67141c,
+        type: 3}
+      propertyPath: refreshRate
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277808558756142523, guid: 8b25315159a71fe4d85381bc3a67141c,
+        type: 3}
+      propertyPath: lerpCoef
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277808558756142523, guid: 8b25315159a71fe4d85381bc3a67141c,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2277808558756142526, guid: 8b25315159a71fe4d85381bc3a67141c,
         type: 3}
       propertyPath: m_Name
@@ -548,5 +563,15 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1296288235}
+    - target: {fileID: 2789518754147856452, guid: 9b875556a77b62640a131a5898dbe682,
+        type: 3}
+      propertyPath: distMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789518754147856452, guid: 9b875556a77b62640a131a5898dbe682,
+        type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b875556a77b62640a131a5898dbe682, type: 3}
