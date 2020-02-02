@@ -61,6 +61,10 @@ public class SpamPoint : MonoBehaviour
         if(spamForce >= spamLimit)
         {
             Destroy(GetComponent<Animator>());
+            if (GetComponent<AudioSource>())
+            {
+                Destroy(GetComponent<AudioSource>());
+            }
             jaugeObject.gameObject.SetActive(false);
             render.sprite = fixedSprite;
             state = true;

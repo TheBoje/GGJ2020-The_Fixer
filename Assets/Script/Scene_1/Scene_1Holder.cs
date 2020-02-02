@@ -147,6 +147,7 @@ public class Scene_1Holder : MonoBehaviour
                 break;
             case 13:
                 generalLight.GetComponent<Light>().intensity = 0.5f;
+                BGMTransform.gameObject.SetActive(false);
                 StartCoroutine(WaitTime(1f, 14));
                 break;
             case 14:
@@ -185,6 +186,7 @@ public class Scene_1Holder : MonoBehaviour
             case 20:
                 playerLight.gameObject.SetActive(false);
                 generalLight.GetComponent<Light>().intensity = 1.25f;
+                BGMTransform.gameObject.SetActive(true);
                 player.canMove = false;
                 dP.Read(6);
                 state = 21;

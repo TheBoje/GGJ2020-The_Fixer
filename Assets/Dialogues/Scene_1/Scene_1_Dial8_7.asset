@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97981c1ac71524841b19c27d50393799, type: 3}
-  m_Name: Scene_1_Dial8_6
+  m_Name: Scene_1_Dial8_7
   m_EditorClassIdentifier: 
-  text: "Fixer : I didn\u2019t expect such a sudden awareness but\u2026 Glad to help.\n"
+  text: 'Fixer : I must leave now i have job to do !'
   speed: 0.05
   choose: 0
   nextOption_1: {fileID: 0}

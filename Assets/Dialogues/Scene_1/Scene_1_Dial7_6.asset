@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Scene_1_Dial7_6
   m_EditorClassIdentifier: 
   text: "Fixer : Yes, you should take care of this house it\u2019s not because you\u2019re
-    alone that you should let you environnement collapsing around you..\r\nAnyway
-    give me a moment, i\u2019ll do it"
+    alone that you should let you environnement collapsing around you."
   speed: 0.05
   choose: 0
   nextOption_1: {fileID: 11400000, guid: ec0cd810403e07d409bac8c6b9b9451a, type: 2}
