@@ -9,9 +9,9 @@ public class QTEUIScript : MonoBehaviour
     [SerializeField] private Text Default_Num2;
     [SerializeField] private Text Default_Num3;
     [SerializeField] private int sum_succes = 0;        // int de vérification de la boucle de jeu, si = -1, break de la boucle
-    private KeyCode key1 = KeyCode.Keypad1;             // Inputs pour le QTE, à modifier éventuellement par Fire[1..3]
-    private KeyCode key2 = KeyCode.Keypad2;
-    private KeyCode key3 = KeyCode.Keypad3;
+    private string key1 = "QTE1";             // Inputs pour le QTE, à modifier éventuellement par Fire[1..3]
+    private string key2 = "QTE2";
+    private string key3 = "QTE3";
     [SerializeField] private AudioSource LooseAudio;    // Sources audio
     [SerializeField] private AudioSource WinAudio;
     [SerializeField] private GameObject focusItem;      // Item trash qui est à l'origine de l'intéraction
@@ -21,9 +21,10 @@ public class QTEUIScript : MonoBehaviour
 
     private void Start()
     {
-        Default_Num1.color = new Color(1, 1, 1, 0); // Rend transparent les numéros à l'initialisation du Script
-        Default_Num2.color = new Color(1, 1, 1, 0);
-        Default_Num3.color = new Color(1, 1, 1, 0);
+        Default_Num1.color = new Color(0, 0, 0, 0); // Rend transparent les numéros à l'initialisation du Script
+        Default_Num2.color = new Color(0, 0, 0, 0);
+        Default_Num3.color = new Color(0, 0, 0, 0);
+
     }
 
     public void PlayQTEStart(List<int> keys, List<int> timings, GameObject GO) // Fonction appelée par GameScriptMG1 pour lancer le QTE
@@ -32,18 +33,18 @@ public class QTEUIScript : MonoBehaviour
         StartCoroutine(PlayQTE(keys, timings)); // On lance la main fonction du QTE
     }
     IEnumerator PlayQTE(List<int> keys, List<int> timings)  // Coroutine main, Entrée : liste des valeurs et liste des temps entre chaque valeurs.
-    {                                                       // On utilise une Coroutine pour pouvoir Wait() sans bloquer tout le jeu
+    {                                      
         for (int i = 0; i < keys.Count; i++)                // Pour chaque élément de la liste des valeurs, on appelle MoveUICanvas() et on attend timings[i] secs. On vérifie que "sum_succes != -1", condition de sortie prématurée
         {
             if (sum_succes != -1)   // Condition de sortie prématurée / défaite
             {
                 MoveUICanvas(keys[i]);
-                yield return new WaitForSeconds((float)timings[i]);
             }
             else
             {
                 break; // Break de la boucle FOR si la cond sum_succes != -1 n'est plus vérifiée.
             }
+            yield return new WaitForSeconds((float)timings[i] * 1.4f); // Le wait s'applique à la fin même si on loose, raison du blocage a chaque fois, très chiant de le changer parce que double Coroutine
         }   // On détermine dans quel cas de sortie on est : réussite ou echec du QTE
         if (sum_succes == -1)
         {
@@ -75,40 +76,41 @@ public class QTEUIScript : MonoBehaviour
                 break;
         }
     }
-    public void MoveUICanvas_aux(Text image, KeyCode key1, KeyCode key2, KeyCode key3)
+    public void MoveUICanvas_aux(Text image, string key1, string key2, string key3)
     {
         StartCoroutine(FadeImage(false, image, key1, key2, key3)); // Appelle la Coroutine de FadeIn / FadeOut du text et vérification des inputs
     }
-    IEnumerator FadeImage(bool fadeAway, Text txt, KeyCode key1, KeyCode key2, KeyCode key3) // fadeAway = true -> FadeOut, fadeAway = false -> FadeIn
+    IEnumerator FadeImage(bool fadeAway, Text txt, string key1, string key2, string key3) // fadeAway = true -> FadeOut, fadeAway = false -> FadeIn
     {
-        float time = Time.deltaTime / 2; // Permet de controler la vitesse de Fade (In et Out)
+        float time = Time.deltaTime * 1f; // Permet de controler la vitesse de Fade (In et Out)
 
         if (fadeAway) // FadeOut
         {
             for (float i = 1; i >= 0; i -= time) // Décrémentation de l'alpha du txt
             {
-                if (Input.GetKey(key1)) // Si on press la Key1, alors on cache le txt, on lance les particules green et on mets le petit sound gentil, puis on sort de la boucle FOR
+                if (Input.GetButton(key1)) // Si on press la Key1, alors on cache le txt, on lance les particules green et on mets le petit sound gentil, puis on sort de la boucle FOR
                 {
-                    txt.color = new Color(1, 1, 1, 0);
-                    GoodButton(txt);
+                    txt.color = new Color(0, 0, 0, 0);
                     SoundButton(txt);
+                    GoodButton(txt);
                     break;
                 }
-                else if (Input.GetKey(key2) || Input.GetKey(key3)) // Vérification de mauvais input, alors on cache le txt, on -1 sum_succes, et on lance les particules red
+                else if (Input.GetButton(key2) || Input.GetButton(key3)) // Vérification de mauvais input, alors on cache le txt, on -1 sum_succes, et on lance les particules red
                 {
-                    txt.color = new Color(1, 1, 1, 0);
+                    txt.color = new Color(0, 0, 0, 0);
                     sum_succes = -1;
+                    SoundButton(txt);
                     Badbutton(txt);
                     break;
                 }
                 else if (i < 0.05f) // Fade away, donc -1 sum_succes, cache le txt et lance les particules yellow
                 {
                     sum_succes = -1;
-                    txt.color = new Color(1, 1, 1, 0);
+                    txt.color = new Color(0, 0, 0, 0);
                     Overtime(txt);
                     break;
                 }
-                txt.color = new Color(1, 1, 1, i); // Application du FadeOut au txt
+                txt.color = new Color(0, 0, 0, i); // Application du FadeOut au txt
                 yield return null;
             }
         }
@@ -116,21 +118,22 @@ public class QTEUIScript : MonoBehaviour
         {
             for (float i = 0; i <= 1; i += time) // Identique à la boucle de FadeOut
             {
-                if (Input.GetKey(key1))
+                if (Input.GetButton(key1))
                 {
-                    txt.color = new Color(1, 1, 1, 0);
-                    GoodButton(txt);
+                    txt.color = new Color(0, 0, 0, 0);
                     SoundButton(txt);
+                    GoodButton(txt);
                     break;
                 }
-                else if (Input.GetKey(key2) || Input.GetKey(key3))
+                else if (Input.GetButton(key2) || Input.GetButton(key3))
                 {
                     sum_succes = -1;
-                    txt.color = new Color(1, 1, 1, 0);
+                    txt.color = new Color(0, 0, 0, 0);
+                    SoundButton(txt);
                     Badbutton(txt);
                     break; 
                 }
-                txt.color = new Color(1, 1, 1, i);
+                txt.color = new Color(0, 0, 0, i);
                 if (i > 0.95f) // Au lieu de finir quand le FadeIn a fini, on relance mais en FadeOut
                 {
                     StartCoroutine(FadeImage(true, txt, key1, key2, key3));
@@ -172,6 +175,5 @@ public class QTEUIScript : MonoBehaviour
         Vector3 temp = txt.GetComponent<RectTransform>().transform.position;
         particuleRed.transform.position = temp + new Vector3(0f, 0f, -5f);
         particuleRed.GetComponent<ParticleSystem>().Play();
-        Debug.Log("Bad bouton");
     }
 }
