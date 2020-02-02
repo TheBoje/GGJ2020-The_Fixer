@@ -34,7 +34,7 @@ public class DialoguePlayer : MonoBehaviour
         option2 = option == "option2";
     }
 
-    private void Start()
+    private void Awake()
     {
         buttonTranform.gameObject.SetActive(false);
         soundEm.enabled = false;
