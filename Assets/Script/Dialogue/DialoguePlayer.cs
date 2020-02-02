@@ -16,6 +16,8 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private Text textOption1;
     [SerializeField] private Text textOption2;
 
+    [SerializeField] private AudioSource soundEm;
+
     private bool playing;
     public bool reading;
     private bool option1;
@@ -35,6 +37,7 @@ public class DialoguePlayer : MonoBehaviour
     private void Start()
     {
         buttonTranform.gameObject.SetActive(false);
+        soundEm.enabled = false;
     }
     /**
      * @brief la fonction qui va être appelé quadn on veux jouer un dialogue dans une scene
@@ -66,12 +69,16 @@ public class DialoguePlayer : MonoBehaviour
             if (text[i] == '<' && text[i + 1] != ' ')
             {
                 for (; text[i] != '>'; i++)
+                {
                     textTransform.text += text[i];
+                    GameObject.Instantiate(soundEm, transform.position, Quaternion.identity, null);
+                }
                 textTransform.text += '>';
             }
             else
             {
                 textTransform.text += text[i];
+                GameObject.Instantiate(soundEm, transform.position, Quaternion.identity, null);
             }
 
             if (Input.GetButton("Fire1"))
@@ -84,6 +91,8 @@ public class DialoguePlayer : MonoBehaviour
             }
         }
         playing = false;
+        soundEm.enabled = false;
+        buttonTranform.gameObject.SetActive(false);
     }
 
     /**
@@ -96,8 +105,10 @@ public class DialoguePlayer : MonoBehaviour
         yield return new WaitUntil(() => (uiTranform.gameObject.activeInHierarchy));
 
         Dialogue dialogue = dialogues[indice];
-        while(dialogue != null)
+        while (dialogue != null)
         {
+            soundEm.enabled = true;
+            soundEm.Play();
             StartCoroutine(TextAnim(dialogue));
             if (dialogue.choose)
             {
