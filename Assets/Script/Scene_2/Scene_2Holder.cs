@@ -22,7 +22,28 @@ public class Scene_2Holder : MonoBehaviour
         {
             case 0 :
                 dP.Read(0);
-
+                break;
+            case 1 :
+                dP.Read(1);
+                break;
+            case 2 :
+                dP.Read(2);
+                break;
+            case 3 :
+                dP.Read(3);
+                break;
+            case 4 :
+                dP.Read(4);
+                break;
+            case 5 :
+                dP.Read(5);
+                break;
+            case 6 :
+                dP.Read(6);
+                break;
+            case 7 :
+                dP.Read(7);
+                break;
 
 
             default:
