@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 input; // Vecteur d'input 
     public float speed = 2f; // Multiplicateur de vitesse, modifiable à vos souhaits
-    public bool canMove = true; // Pour bloquer le player quand il est en train QTE
+    public bool canMove; // Pour bloquer le player quand il est en train QTE
 
     private Rigidbody2D rb; // Rigidbody du player
 
@@ -21,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() // Pas update parce que FixedUpdate rends tout smooths (toujours faire Fixed pour, 
     {
         if (canMove)
-        {
-            
+        {            
             input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); // Récupération des inputs selon l'input manager de Unity
         }
         else
@@ -35,16 +34,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 input = Vector3.zero;
             }
-        }      
-
-        if (canMove)    // Applique la vélocité uniquement si je player n'est pas en QTE
-        {
-            rb.velocity = input * speed * 100 * Time.deltaTime; // Application de la vitesse au personnage ( + linéarisation avec Time.deltaTime)
         }
-        else
-        {
-            rb.velocity = Vector3.zero; // Si le player joue, on bloque ses mouvements
-        }
+        rb.velocity = input * speed; // Application de la vitesse au personnage ( + linéarisation avec Time.deltaTime)
     }
 
 }
