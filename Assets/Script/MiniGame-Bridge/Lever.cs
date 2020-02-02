@@ -6,13 +6,16 @@ public class Lever : MonoBehaviour
 {
 
     [SerializeField] private bool _state;
+    [SerializeField] private AudioSource aS;
 
     public bool isPLayerPresent;
+
 
  
     void Start()
     {
         _state = false;
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -25,7 +28,9 @@ public class Lever : MonoBehaviour
             if(Input.GetButtonDown("Fire1") && !_state)
             {
                 //transform.GetComponentInParent<SpriteRenderer>().color = Color.green;
+                aS.Play();
                 _state = true;
+                
             }
                 
         }

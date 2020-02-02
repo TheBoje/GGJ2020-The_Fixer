@@ -71,14 +71,12 @@ public class DialoguePlayer : MonoBehaviour
                 for (; text[i] != '>'; i++)
                 {
                     textTransform.text += text[i];
-                    GameObject.Instantiate(soundEm, transform.position, Quaternion.identity, null);
                 }
                 textTransform.text += '>';
             }
             else
             {
                 textTransform.text += text[i];
-                GameObject.Instantiate(soundEm, transform.position, Quaternion.identity, null);
             }
 
             if (Input.GetButton("Fire1"))
