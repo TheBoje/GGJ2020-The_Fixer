@@ -2,27 +2,26 @@
 
 public class PlayerTrash : MonoBehaviour
 {
-    public bool isInteracting = false;  // Booléen de vérification : permet de ne pas lancer la boucle de minijeu pour nettoyer
-    [SerializeField] private bool isPressingUse = false;
+    public bool isInteracting = false;                      // Booléen de vérification : permet de ne pas lancer la boucle de minijeu pour nettoyer
+    [SerializeField] private GameObject canvas;             // Holder de l'UI
 
-    private void Update()
+    private void Start()
     {
-        isPressingUse = Input.GetButton("Use"); //TODO Fix this shit please ( louis de demain, soit pas con stp)
+        canvas.SetActive(false);    // Mets inactive par défaut l'UI
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
+
+
+    private void OnTriggerStay2D(Collider2D collision) // Methode de Unity, collision.gameObject est le GO de l'object rencontré
     {
-        if (collision.gameObject.tag == "Trash" && !isInteracting && isPressingUse)
+        if (collision.gameObject.tag == "Trash" && !isInteracting && Input.GetButton("Fire1")) // Conditions d'intéractions
         {
-            isInteracting = true;
-            collision.gameObject.GetComponent<TrashState>().Interact();
+            canvas.SetActive(true); //Bug du canvas qui bouge si on touch une direction
+            
+            GetComponent<PlayerMovement>().canMove = false; // Bloque le player
+            isInteracting = true;                           // Evite de dupliquer / spam les interactions
+            collision.gameObject.GetComponent<TrashState>().Interact(); // Lance la fonction d'interaction dans le fichier 
         }
-
-
-        /*else if ( isInteracting == true)
-        {
-            Debug.Log("Le personnage est déjà en train d'intéragir. Le bool est mis à false quelque part?");
-        }*/
     }
 }
