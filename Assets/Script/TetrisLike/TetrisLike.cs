@@ -45,7 +45,7 @@ public class TetrisLike : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(transform.rotation.eulerAngles.z);
+        //Debug.Log(transform.rotation.eulerAngles.z);
 
         bool test_part_1 = isInPostition(part1, POS_X, POS_Y_1),
             test_part_2 = isInPostition(part2, -POS_X, -POS_Y_2),

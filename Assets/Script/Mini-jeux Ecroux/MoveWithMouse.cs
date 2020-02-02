@@ -33,7 +33,7 @@ public class MoveWithMouse : MonoBehaviour
         {
             float z = transform.rotation.z * Mathf.Rad2Deg;   // Prend le z de l'ecrou et le transforme en degres 
 
-            if (z > -5 && z < 5)    // Si le z est compris entre -5 et 5
+            if (z > -20 && z < 20)    // Si le z est compris entre -5 et 5
             {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.green;  // Met l'ecrou en vert
             }

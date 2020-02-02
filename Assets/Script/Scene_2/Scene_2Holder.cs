@@ -112,7 +112,7 @@ public class Scene_2Holder : MonoBehaviour
                 StartCoroutine(WaitTime(2, 9));
                 break;
             case 9:
-                SceneManager.LoadScene("0");
+                SceneManager.LoadScene(0);
                 break;
 
             default:

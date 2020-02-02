@@ -160,20 +160,20 @@ public class QTEUIScript : MonoBehaviour
     }
     private void Overtime(Text txt)
     {
-        Vector3 temp = txt.GetComponent<RectTransform>().transform.position;    // récupère la position du txt 
-        particuleYellow.transform.position = temp + new Vector3(0f, 0f, -5f);   // positionne les particules sur le txt + offset pour ne pas être derriere 
+        Vector3 temp = focusItem.transform.position;    // récupère la position du txt 
+        particuleYellow.transform.position = temp + new Vector3(0f, 0f, -1f);   // positionne les particules sur le txt + offset pour ne pas être derriere 
         particuleYellow.GetComponent<ParticleSystem>().Play();                  // Lance les particules
     }
     private void GoodButton(Text txt) // Voir Overtime() 
     {
-        Vector3 temp = txt.GetComponent<RectTransform>().transform.position;
-        particuleGreen.transform.position = temp + new Vector3(0f, 0f, -5f);
+        Vector3 temp = focusItem.transform.position;
+        particuleGreen.transform.position = temp + new Vector3(0f, 0f, -1f);
         particuleGreen.GetComponent<ParticleSystem>().Play();
     }
     private void Badbutton(Text txt) // Voir Overtime()
     {
-        Vector3 temp = txt.GetComponent<RectTransform>().transform.position;
-        particuleRed.transform.position = temp + new Vector3(0f, 0f, -5f);
+        Vector3 temp = focusItem.transform.position;
+        particuleRed.transform.position = temp + new Vector3(0f, 0f, -1f);
         particuleRed.GetComponent<ParticleSystem>().Play();
     }
 }

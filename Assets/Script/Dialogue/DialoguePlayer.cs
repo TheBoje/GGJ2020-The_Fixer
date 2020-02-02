@@ -37,7 +37,7 @@ public class DialoguePlayer : MonoBehaviour
     private void Awake()
     {
         buttonTranform.gameObject.SetActive(false);
-        soundEm.enabled = false;
+        //soundEm.enabled = false;
     }
     /**
      * @brief la fonction qui va être appelé quadn on veux jouer un dialogue dans une scene
@@ -47,7 +47,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         if (reading)
             return;
-        Debug.Log("Start Reading...");
+        //Debug.Log("Start Reading...");
         screenUI = true;
         reading = true;
         StartCoroutine(DialogueAnim(indice));

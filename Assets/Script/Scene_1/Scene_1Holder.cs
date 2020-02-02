@@ -248,7 +248,7 @@ public class Scene_1Holder : MonoBehaviour
                 break;
             case 28:
                 //LOad level
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(4);
                 break;
             default:
                 break;
