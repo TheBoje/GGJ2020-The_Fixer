@@ -25,6 +25,7 @@ public class Scene_1Holder : MonoBehaviour
 
     [SerializeField] private Transform generalLight;
     [SerializeField] private Transform playerLight;
+
     [SerializeField] private Lever bathroomCollider;
 
 
@@ -59,6 +60,7 @@ public class Scene_1Holder : MonoBehaviour
     {
         elecSwitch.enabled = false;
         chaudiere.enabled = false;
+        bathroomCollider.enabled = false;
     }
 
     private void Update()
@@ -146,7 +148,8 @@ public class Scene_1Holder : MonoBehaviour
                 }
                 break;
             case 13:
-                generalLight.GetComponent<Light>().intensity = 0.5f;
+                generalLight.GetComponent<Light>().intensity = 0.25f;
+                bathroomCollider.enabled = false;
                 BGMTransform.gameObject.SetActive(false);
                 StartCoroutine(WaitTime(1f, 14));
                 break;
