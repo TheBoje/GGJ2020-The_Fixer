@@ -148,6 +148,7 @@ public class Scene_1Holder : MonoBehaviour
                 }
                 break;
             case 13:
+                GetComponent<AudioSource>().Play();
                 generalLight.GetComponent<Light>().intensity = 0.25f;
                 bathroomCollider.enabled = false;
                 BGMTransform.gameObject.SetActive(false);
