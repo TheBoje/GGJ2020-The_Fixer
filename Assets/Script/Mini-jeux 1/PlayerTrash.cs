@@ -7,7 +7,7 @@ public class PlayerTrash : MonoBehaviour
 
     private void Update()
     {
-        isPressingUse = Input.GetButton("Use"); //TODO Fix this shit please ( louis de demain, soit pas con stp)
+        isPressingUse = Input.GetButton("Fire1"); //TODO Fix this shit please ( louis de demain, soit pas con stp)
     }
 
 
