@@ -8,11 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 input; // Vecteur d'input 
     public float speed = 2f; // Multiplicateur de vitesse, modifiable à vos souhaits
     public bool canMove = true; // Pour bloquer le player quand il est en train QTE
-    private string bigay = "yann is big gay"; // A voir plus tard i guess
 
     private Rigidbody2D rb; // Rigidbody du player
 
-    public bool canMove;
     public bool folowAPoint;
     public Transform folowTransform;
 
@@ -46,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.velocity = Vector3.zero; // Si le player joue, on bloque ses mouvements
-            // suck like a gay
         }
     }
 
