@@ -7,8 +7,10 @@ The Fixer is a calm 2D game. Embody a cute citizen whose goal is to help others.
 
 # Some screenshots
 
-|![](https://ggj.s3.amazonaws.com/styles/game_content__wide/games/screenshots/2020/02/279612/screenshot_25.png?itok=Uvh1C3mU&timestamp=1580657839)|![](https://ggj.s3.amazonaws.com/styles/game_content__wide/games/screenshots/2020/02/279612/screenshot_26.png?itok=tEuQ4mET&timestamp=1580657839)|![](https://ggj.s3.amazonaws.com/styles/game_content__wide/games/screenshots/2020/02/279612/screenshot_29.png?itok=2XkM0lt0&timestamp=1580657839)|
-|-|-|-|
+|![](https://ggj.s3.amazonaws.com/styles/game_content__wide/games/screenshots/2020/02/279612/screenshot_25.png?itok=Uvh1C3mU&timestamp=1580657839)|
+|-|
+|![](https://ggj.s3.amazonaws.com/styles/game_content__wide/games/screenshots/2020/02/279612/screenshot_26.png?itok=tEuQ4mET&timestamp=1580657839)|
+|![](https://ggj.s3.amazonaws.com/styles/game_content__wide/games/screenshots/2020/02/279612/screenshot_29.png?itok=2XkM0lt0&timestamp=1580657839)|
 
 # Credits
 
